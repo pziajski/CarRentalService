@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Author: Zarak Khattak (121169163)  -->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt" version="2.0">
+	<jsp:directive.page language="java"
+		contentType="application/xhtml+xml; charset=UTF-8"
+		pageEncoding="UTF-8" />
+	<jsp:output omit-xml-declaration="no" doctype-root-element="html"
+		doctype-public="-//W3C//DTD XHTML 1.1//EN"
+		doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link rel="stylesheet" type="text/css" href="Styling/GenericStyle.css" />
+	<link rel="stylesheet" type="text/css" href="Styling/crbamenu.css" />
+	<title>Show Bookings</title>
+</head>
+<body>
+	<jsp:include page="crbamenu.jspx" />
+	<div>
+		<c:choose>
+			<c:when test="${empty carsBooked}">
+				<p class="error">You have no rentals booked.</p>
+			</c:when>
+			<c:when test="${not (empty carsBooked)}">
+				<table>
+					<thead>
+						<tr>
+							<th>Vehicle Make</th>
+							<th>Vehicle Size</th>
+							<th>Pickup Date</th>
+							<th>Dropoff Date</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="bookings" items="${carsBooked}">
+							<tr>
+								<td>${bookings.getCarMake()}</td>
+								<td>
+									<c:choose>
+										<c:when test ="${bookings.carSize eq 'S'}">Small</c:when>
+										<c:when test ="${bookings.carSize eq 'M'}">Medium</c:when>
+										<c:when test ="${bookings.carSize eq 'L'}">Large</c:when>
+									</c:choose>
+								</td>
+								<td><fmt:formatDate value="${bookings.getPickupDate()}" type="date" pattern="MMMM dd, yyyy" /></td>
+								<td><fmt:formatDate value="${bookings.getDropoffDate()}" type="date" pattern="MMMM dd, yyyy" /></td>
+								<td>
+									<form action="showbookings.jspx" method="post">
+									<p>
+										<input type="hidden" name="bookingNo" value="${bookings.getBookingNo()}"/>
+										<input type="submit" name="cancel" value="Cancel Booking" />
+									</p>
+									</form>
+								</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</c:when>
+		</c:choose>
+	</div>
+</body>
+</html>
+</jsp:root>

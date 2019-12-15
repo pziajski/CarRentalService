@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Author: Zarak Khattak (121169163)  -->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" 
+		  xmlns:c ="http://java.sun.com/jsp/jstl/core"
+		  xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+		  version="2.0">
+	<jsp:directive.page language="java"
+        contentType="application/xhtml+xml; charset=UTF-8" pageEncoding="UTF-8" />
+    <jsp:output omit-xml-declaration="no"
+        doctype-root-element="html"
+        doctype-public="-//W3C//DTD XHTML 1.1//EN"
+        doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link rel="stylesheet" type="text/css" href="Styling/badrequest.css" />
+	<title>Show Bookings</title>
+</head>
+<body>
+	<p class ="error" > The request specified is not valid! </p>
+	<p>Please click <a href=".">here</a> to go back </p>
+</body>
+</html>
+</jsp:root>

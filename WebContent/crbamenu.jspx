@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Author: Patrick Ziajski -->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page language="java" />
+<div class="ignore">
+	<ul>
+		<li><a href="bookrental.jspx">Book</a></li>
+		<li><a href="showbookings.jspx">Reservations</a></li>
+		<li><a href="logout.jspx">Logout</a></li>
+		<li class="text">Bookings: ${numberOfBookings}</li>
+		<li class="text">${client.getFirstName()} ${client.getLastName()}</li>
+	</ul>
+</div>
+</jsp:root>

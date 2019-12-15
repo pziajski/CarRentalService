@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Author: Zarak Khattak (121169163)  -->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" 
+		  xmlns:c ="http://java.sun.com/jsp/jstl/core"
+		  xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+		  version="2.0">
+	<jsp:directive.page language="java"
+        contentType="application/xhtml+xml; charset=UTF-8" pageEncoding="UTF-8" />
+    <jsp:output omit-xml-declaration="no"
+        doctype-root-element="html"
+        doctype-public="-//W3C//DTD XHTML 1.1//EN"
+        doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link rel="stylesheet" type="text/css" href="Styling/GenericStyle.css" />
+	<link rel="stylesheet" type="text/css" href="Styling/clientlogin.css" />
+	<title>Client Login</title>
+</head>
+<body>
+	<div>
+		<h1>easyPZ Car Rental</h1>
+		<h2><em>Welcome!</em> Please enter your credentials to Login</h2>
+		<form action="clientlogin.jspx" method="post">
+		<p>
+			Username: <input type ="text" name="username" value="${username}"/>
+			Password: <input type ="password" name="password" />
+			<input type ="submit" name="login" value="Log In"/>
+		</p>
+		</form>
+		<c:if test="${error}">
+		<p class = "error"> Please enter a correct Username/Password Combination.
+		</p>
+		</c:if>
+	</div>
+</body>
+</html>
+</jsp:root>
